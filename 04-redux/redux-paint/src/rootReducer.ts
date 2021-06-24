@@ -1,13 +1,12 @@
-type RootState = {}
+type RootState = {};
 
 type Action = {
-    type: string
-}
-
+  type: string;
+};
 
 export const rootReducer = (
-    state: RootState = {},
-    action: Action
+  state: RootState = {},
+  action: Action
 ) => {
-    return state
-}
+  return state;
+};
