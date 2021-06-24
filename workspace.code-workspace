@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "04-redux/redux-paint"
+		}
+
+	],
+	"settings": {}
+}
