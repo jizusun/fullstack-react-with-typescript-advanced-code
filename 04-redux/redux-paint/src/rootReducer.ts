@@ -3,6 +3,7 @@ import {
   Action,
   BEGIN_STROKE,
   END_STROKE,
+  SET_STROKE_COLOR,
   UPDATE_STROKE,
 } from './action';
 
@@ -43,6 +44,15 @@ export const rootReducer = (
         ...state,
         currentStoke: { ...state.currentStoke, points: [] },
         strokes: [...state.strokes, state.currentStoke],
+      };
+    }
+    case SET_STROKE_COLOR: {
+      return {
+        ...state,
+        currentStoke: {
+          ...state.currentStoke,
+          ...{ color: action.payload },
+        },
       };
     }
     default:

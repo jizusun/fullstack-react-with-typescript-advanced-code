@@ -10,16 +10,7 @@ import 'xp.css/dist/XP.css';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'stretch',
-        }}
-      >
-        <App />
-      </div>
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

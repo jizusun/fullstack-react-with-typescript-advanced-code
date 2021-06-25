@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { beginStroke, updateStroke, endStroke } from './action';
 import './App.css';
 import { currentStrokeSelector } from './selectors';
 import { drawStroke } from './canvasUtils';
+import { ColorPanel } from './ColorPanel';
 
-const App = () => {
+const App: React.FC = () => {
   useEffect(() => {
     const { context } = getCanvasWithContext();
     if (!context) {
@@ -46,7 +47,7 @@ const App = () => {
   };
 
   return (
-    <div style={{ width: '100%', height: '100%' }} className="window">
+    <div style={{ width: '100%', height: '90%' }} className="window">
       <div className="title-bar">
         <div className="title-bar-text">Redux Paint</div>
         <div className="title-bar-controls">
@@ -56,15 +57,8 @@ const App = () => {
         </div>
       </div>
 
-      <div
-        className="window-body"
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="window-body">
+        <ColorPanel />
         <canvas
           style={{
             backgroundColor: 'white',
@@ -74,8 +68,8 @@ const App = () => {
           onMouseOut={endDrawing}
           onMouseMove={draw}
           ref={canvasRef}
-          width={800}
-          height={800}
+          width="800px"
+          height="500px"
         />
       </div>
     </div>
