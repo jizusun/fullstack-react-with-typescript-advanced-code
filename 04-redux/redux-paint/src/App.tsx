@@ -5,7 +5,7 @@ import './App.css';
 import { currentStrokeSelector } from './selectors';
 import { drawStroke } from './canvasUtils';
 
-function App() {
+const App = () => {
   useEffect(() => {
     const { context } = getCanvasWithContext();
     if (!context) {
@@ -15,6 +15,7 @@ function App() {
       drawStroke(context, currentStroke.points, currentStroke.color);
     });
   });
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const currentStroke = useSelector(currentStrokeSelector);
   const isDrawing = !!currentStroke.points.length;
@@ -45,14 +46,40 @@ function App() {
   };
 
   return (
-    <canvas
-      onMouseDown={startDrawing}
-      onMouseUp={endDrawing}
-      onMouseOut={endDrawing}
-      onMouseMove={draw}
-      ref={canvasRef}
-    />
+    <div style={{ width: '100%', height: '100%' }} className="window">
+      <div className="title-bar">
+        <div className="title-bar-text">Redux Paint</div>
+        <div className="title-bar-controls">
+          <button aria-label="Minimize" />
+          <button aria-label="Maximize" />
+          <button aria-label="Close" />
+        </div>
+      </div>
+
+      <div
+        className="window-body"
+        style={{
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <canvas
+          style={{
+            backgroundColor: 'white',
+          }}
+          onMouseDown={startDrawing}
+          onMouseUp={endDrawing}
+          onMouseOut={endDrawing}
+          onMouseMove={draw}
+          ref={canvasRef}
+          width={800}
+          height={800}
+        />
+      </div>
+    </div>
   );
-}
+};
 
 export default App;

@@ -7,7 +7,7 @@ import {
 } from './action';
 
 const initialState: RootState = {
-  currentStoke: { points: [], color: '#000' },
+  currentStoke: { points: [], color: 'red' },
   strokes: [],
   // historyIndex: 0,
 };
@@ -16,7 +16,6 @@ export const rootReducer = (
   state: RootState = initialState,
   action: Action
 ): RootState => {
-  console.log(action.type);
   switch (action.type) {
     case BEGIN_STROKE: {
       return {
@@ -42,6 +41,7 @@ export const rootReducer = (
       }
       return {
         ...state,
+        currentStoke: { ...state.currentStoke, points: [] },
         strokes: [...state.strokes, state.currentStoke],
       };
     }
