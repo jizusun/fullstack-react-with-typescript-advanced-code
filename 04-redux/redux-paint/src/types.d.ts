@@ -1,6 +1,7 @@
 export type RootState = {
   currentStoke: Stroke;
   strokes: Stroke[];
+  historyIndex: number;
 };
 
 export type Stroke = {

@@ -5,12 +5,12 @@ import {
   END_STROKE,
   SET_STROKE_COLOR,
   UPDATE_STROKE,
-} from './action';
+} from './actions';
 
 const initialState: RootState = {
   currentStoke: { points: [], color: 'red' },
   strokes: [],
-  // historyIndex: 0,
+  historyIndex: 0,
 };
 
 export const rootReducer = (
@@ -53,6 +53,11 @@ export const rootReducer = (
           ...state.currentStoke,
           ...{ color: action.payload },
         },
+      };
+    }
+    case UNDO: {
+      return {
+        ...state,
       };
     }
     default:

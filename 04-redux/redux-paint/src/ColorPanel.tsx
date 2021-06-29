@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setStrokeColor } from './action';
+import { setStrokeColor } from './actions';
 
 // https://github.com/plastikfan/paint/blob/7b915745c7b4f74aa722045874d2b62afb00c454/src/ColorPanel.tsx#L8-L37
 const COLORS = [

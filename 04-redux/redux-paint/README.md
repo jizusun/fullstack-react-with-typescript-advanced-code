@@ -4,3 +4,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - https://github.com/phongluudn1997/redux-paint
 - https://github.com/boy-warakorn/react-redux-ts/tree/master
+- https://github.com/CaioGrossi/Redux-Paint
