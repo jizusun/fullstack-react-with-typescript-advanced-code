@@ -5,6 +5,8 @@ import {
   END_STROKE,
   SET_STROKE_COLOR,
   UPDATE_STROKE,
+  UNDO,
+  REDO,
 } from './actions';
 
 const initialState: RootState = {
@@ -55,11 +57,18 @@ export const rootReducer = (
         },
       };
     }
+    // fix me
     case UNDO: {
       return {
         ...state,
       };
     }
+    case REDO: {
+      return {
+        ...state,
+      };
+    }
+
     default:
       return state;
   }
