@@ -1,9 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { beginStroke, updateStroke, endStroke } from './actions';
+import {
+  beginStroke,
+  updateStroke,
+} from './modules/currentStroke/actions';
+import { endStroke } from './modules/strokes/actions';
 import './App.css';
-import { currentStrokeSelector, strokesSelector } from './selectors';
+import { currentStrokeSelector } from './modules/currentStroke/selector';
 import { historyIndexSelector } from './modules/historyIndex/selector';
+import { strokesSelector } from './modules/strokes/selectors';
 import { drawStroke, clearCanvas } from './canvasUtils';
 import { ColorPanel } from './ColorPanel';
 import { EditPanel } from './EditPanel';
