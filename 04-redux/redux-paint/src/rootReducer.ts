@@ -57,18 +57,6 @@ export const rootReducer = (
         },
       };
     }
-    // fix me
-    case UNDO: {
-      return {
-        ...state,
-      };
-    }
-    case REDO: {
-      return {
-        ...state,
-      };
-    }
-
     default:
       return state;
   }

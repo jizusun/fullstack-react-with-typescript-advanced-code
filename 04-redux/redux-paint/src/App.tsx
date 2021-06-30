@@ -2,11 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { beginStroke, updateStroke, endStroke } from './actions';
 import './App.css';
-import {
-  currentStrokeSelector,
-  strokesSelector,
-  historyIndexSelector,
-} from './selectors';
+import { currentStrokeSelector, strokesSelector } from './selectors';
+import { historyIndexSelector } from './modules/historyIndex/selector';
 import { drawStroke, clearCanvas } from './canvasUtils';
 import { ColorPanel } from './ColorPanel';
 import { EditPanel } from './EditPanel';
