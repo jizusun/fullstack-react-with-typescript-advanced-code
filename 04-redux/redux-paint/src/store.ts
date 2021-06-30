@@ -1,27 +1,28 @@
 import {
   configureStore,
   getDefaultMiddleware,
-  combineReducers,
+  Action,
+  // combineReducers,
 } from '@reduxjs/toolkit';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import { Middleware } from 'redux';
-import { reducer as historyIndex } from './modules/historyIndex/reducer';
-import { reducer as currentStoke } from './modules/currentStroke/reducer';
-import { reducer as strokes } from './modules/strokes/reducer';
+import { currentStoke } from './modules/currentStrokeSlice';
+import { historyIndex } from './modules/historyIndexSlice';
+import { strokes } from './modules/strokesSlice';
 
 let middleware: Middleware[] = [];
 if (process.env.NODE_ENV === 'development') {
-  middleware = [...middleware, logger];
+  middleware = [...getDefaultMiddleware(), logger];
 } else {
-  middleware = [...middleware];
+  middleware = [...getDefaultMiddleware()];
 }
 
 export const store = configureStore({
-  reducer: combineReducers({
+  reducer: {
     historyIndex,
     currentStoke,
     strokes,
-  }),
+  },
   middleware,
 });
